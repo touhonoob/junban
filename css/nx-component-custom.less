@@ -186,7 +186,13 @@
 .gn-menu-wrapper {
 	// position fixed vertical nav
 	position: fixed;
-	top: @gn-nav-width;	bottom: 0;	left: 0;
+
+	// fix android fixed position scrolling move bug
+	// This bug happend when top: @px; or bottom: @px; 
+	// not sure without height block will be happen or not.
+	top: inherit; height: 100%; 
+	left: 0;
+	z-index: @zindex-navbar-fixed;
 	
 	overflow: hidden;
 	width: @gn-nav-width;
