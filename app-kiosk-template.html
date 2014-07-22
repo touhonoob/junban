@@ -13,17 +13,23 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
 
     <!-- stylesheet -->
-    <link rel="stylesheet" type="text/less" href="css/combine-app-kiosk.less">
+    <link rel="stylesheet" type="text/css" href="css/combine-app-kiosk.css">
 
     <!-- vendor -->
     <script type="text/javascript" src="js/jquery.min.js"></script>
-    <script type="text/javascript" src="js/less-1.7.0.min.js"></script>
+    <!-- <script type="text/javascript" src="js/less-1.7.3.min.js"></script> -->
     <script type="text/javascript" src="js/holder.js"></script>
     <script type="text/javascript" src="bower_components/handlebars/handlebars.js"></script>
 
     <!-- javascript -->
     <script src="js/modernizr.custom.js"></script>
     <script src="js/template-load.js"></script>
+
+    <!-- Clear local-Storage -->
+    <script>
+    /* Provisory for dev environment: */
+    localStorage.clear();
+    </script>
 </head>
 
 <body>
@@ -41,51 +47,72 @@
     <iframe id="template6" title="Closed" src="template/template-customer-6.html"></iframe>
 
 
-    <!-- 選單 -->
-
     <!-- 內容顯示區 -->
-    <div class="container container-full main-content">
-        <div class="row row-table">
-            <div id="content" class="col-sm-10 col-xs-9 col-table">
+    <div class="container container-fixed">
+        <!-- working part -->
+        <div class="col-left">
+            <ul class="cards">
+                <li>
+                    <div class="card">
+                        <span class="serial">99</span>
+                        <!-- 
+                             -->
+                        <span class="signature">
+                            <div class="img-signature"></div>
+                        </span>
+                        <!-- 
+                             -->
+                        <span class="esquire">様</span>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <!-- working part -->
+        <div class="col-right">
+            <!-- before part -->
+            <div class="row row-table">
+                <div id="content" class="col-sm-10 col-xs-9 col-table">
 
-            </div>
-            <div class="col-sm-2 col-xs-3 progress-nav">
-                <ul class="list-group">
-                    <li href="#" name="home" class="list-group-item text-center">
-                        <i class="fa fa-home"></i>
-                        <br/>ホーム
-                    </li>
-                    <li href="#" name="sign" class="list-group-item text-center">
-                        <i class="fa fa-pencil"></i>
-                        <br/>サイン
-                    </li>
-                    <li href="#" name="question" class="list-group-item text-center">
-                        <i class="fa fa-question-circle"></i>
-                        <br/>質問
-                        <br/>
-                        <ul class="pagination question-pagination">
-                            <li class="disabled"><a>1</a>
-                            </li>
-                            <li class="disabled"><a>2</a>
-                            </li>
-                            <li class="active disabled"><a>3</a>
-                            </li>
-                            <li class="disabled"><a>4</a>
-                            </li>
-                            <li class="disabled"><a>5</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li href="#" name="complete" class="list-group-item text-center">
-                        <i class="fa fa-star"></i>
-                        <br/>完成
-                    </li>
-                </ul>
-                <!-- btn-cancel -->
-                <div class="">
-                    <a class="btn btn-default btn-cancel">
-                        <i class="fa fa-times"></i>
-                        キャンセル</a>
+                </div>
+                <div class="col-sm-2 col-xs-3 progress-nav">
+                    <ul class="list-group">
+                        <li href="#" name="home" class="list-group-item text-center">
+                            <i class="fa fa-home"></i>
+                            <br/>ホーム
+                        </li>
+                        <li href="#" name="sign" class="list-group-item text-center">
+                            <i class="fa fa-pencil"></i>
+                            <br/>サイン
+                        </li>
+                        <li href="#" name="question" class="list-group-item text-center">
+                            <i class="fa fa-question-circle"></i>
+                            <br/>質問
+                            <br/>
+                            <ul class="pagination question-pagination">
+                                <li class="disabled"><a>1</a>
+                                </li>
+                                <li class="disabled"><a>2</a>
+                                </li>
+                                <li class="active disabled"><a>3</a>
+                                </li>
+                                <li class="disabled"><a>4</a>
+                                </li>
+                                <li class="disabled"><a>5</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li href="#" name="complete" class="list-group-item text-center">
+                            <i class="fa fa-star"></i>
+                            <br/>完成
+                        </li>
+                    </ul>
+                    <!-- btn-cancel -->
+                    <div class="">
+                        <a class="btn btn-default btn-cancel">
+                            <i class="fa fa-times"></i>
+                            キャンセル
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -128,6 +155,19 @@
                     $('.list-group-item[name="complete"]').addClass('active');
                 });
             });
+            </script>
+
+            <!-- for dev create Cards -->
+            <script>
+            $(document).ready(function() {
+                var card = $('.card').parent().html();
+                for (var i = 18 - 1; i >= 0; i--) {
+                    $('.cards').append('<li>' + card + '</li>');
+                };
+                $('.cards .serial').each(function(i) {
+                    $(this).html(i + 3);
+                })
+            })
             </script>
         </div>
     </nav>
