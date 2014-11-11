@@ -12,6 +12,7 @@
     display: inline-block;
     text-align: center;
     padding: 0 5px 12px 5px;
+    margin-bottom: 8px;
     border: 3px solid rgba(0,0,0,0.3);
     border-width: 3px 0 0 3px;        
     .border-radius(20px);	
@@ -89,10 +90,26 @@
 .btn-kiosk-start {
 
 }
+.btn-kiosk-next {
+        
+}
 .btn-kiosk-option {
 	.btn-kiosk-flex;
-
 }
+.btn-kiosk-warning {
+    @btn-color: gray;
+    @btn-shadow: gray;
+    .background-image( linear-gradient(bottom top, #FFA540 0%, #F78F33 100%) );    
+    .box-shadow(~"inset 0px 1px 0px @{btn-color}, inset 0px -1px 0px @{btn-color}, 0px 18px 0px @{btn-shadow};");
+}
+.btn-kiosk-default {
+    @btn-color: gray;
+    @btn-shadow: gray;
+    .background-image( linear-gradient(bottom top, #FFD082 0%, #FD9F20 100%) );    
+    .box-shadow(~"inset 0px 1px 0px @{btn-color}, inset 0px -1px 0px @{btn-color}, 0px 18px 0px @{btn-shadow};");
+}
+
+
 
 //	==============================
 //	Another Button Size
@@ -109,8 +126,7 @@
 .btn-kiosk-lg {
  	.btn-kiosk {		
 	    font-size: 4.5em;
-	    padding: 0.7em 2.3em;
-	    .background-image( linear-gradient(bottom top, #F8CF8B 0%, #3EB8E5 50%) );    
+	    padding: 0.7em 2.3em;    
  	}	
 }
 
